@@ -1,0 +1,36 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  presets: [require("nativewind/preset")],
+  theme: {
+    extend: {
+      colors: {
+        "font-default": "var(--color-font-default)",
+        "screen-bg": "var(--color-screen-bg)",
+        "modal-bg": "var(--color-modal-bg)",
+        "day-bar-bg": "var(--color-day-bar-bg)",
+        "search-bar": "var(--color-search-bar)",
+        "dar-bar-ns-bg": "var(--color-day-bar-ns-bg)",
+        "theme-bar": "var(--color-theme-bar)",
+        "set-bar": "var(--color-set-bar)",
+        "bar-light": "var(--color-bar-light)",
+        "bar-dark": "var(--color-bar-dark)",
+        up: "var(--color-up)",
+        down: "var(--color-down)",
+        "tab-bars": "var(--color-tab-bars)",
+        "tab-bar-ns": "var(--color-tab-bar-ns)",
+        "ticker-font": "var(--color-ticker-Font)",
+        border: "var(--color-border)",
+        shadow: "var(--color-shadow)",
+        bone: "var(--color-bone)",
+        highlight: "var(--color-highlight)",
+        earning: "var(--color-earning)",
+        placeholder: "var(--color-placeholder)",
+        dropdown: "var(--color-dropdown)",
+        "opacity-up": "var(--color-opacity-up)",
+        "opacity-down": "var(--color-opacity-down)",
+      },
+    },
+  },
+  plugins: [],
+};

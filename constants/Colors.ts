@@ -1,26 +1,57 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
-export const Colors = {
+const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    "--color-font-default": "#000000",
+    "--color-screen-bg": "#FFFFFF",
+    "--color-modal-bg": "#FFFFFF",
+    "--color-day-bar-bg": "#12E6A6",
+    "--color-search-bar": "#EAE8E8",
+    "--color-day-bar-ns-bg": "#FFFFFF",
+    "--color-theme-bar": "#f4f8fc",
+    "--color-set-bar": "#EAE8E8",
+    "--color-bar-light": "#FFFFFF",
+    "--color-bar-dark": "#EAE8E8",
+    "--color-up": "#23d19a",
+    "--color-down": "#F55D3E",
+    "--color-tab-bars": "#292929",
+    "--color-tab-bar-ns": "#D5D5D5",
+    "--color-ticker-font": "#808080",
+    "--color-border": "#e8e8e8",
+    "--color-shadow": "#000000",
+    "--color-bone": "#E1E9EE",
+    "--color-highlight": "#F2F8FC",
+    "--color-earning": "#66667f",
+    "--color-placeholder": "#9e9e9e",
+    "--color-dropdown": "#6a6a72",
+    "--color-opacity-up": "#c8f7e6",
+    "--color-opacity-down": "#f4d1cb",
   },
+
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    "--color-font-default": "#FFFFFF",
+    "--color-screen-bg": "#040e16",
+    "--color-modal-bg": "#0f151c",
+    "--color-search-bar": "#1C1C1E",
+    "--color-day-bar-bg": "#12E6A6",
+    "--color-day-bar-ns-bg": "#040e16",
+    "--color-theme-bar": "#20262d",
+    "--color-set-bar": "#161c23",
+    "--color-bar-light": "#161c23",
+    "--color-bar-dark": "#1c3654",
+    "--color-up": "#23d19a",
+    "--color-down": "#F55D3E",
+    "--color-tab-bars": "#FFFFFF",
+    "--color-tab-bar-ns": "#7B7B7B",
+    "--color-ticker-font": "#808080",
+    "--color-border": "#20262d",
+    "--color-shadow": "#486ea0",
+    "--color-bone": "#161c23",
+    "--color-highlight": "#333333",
+    "--color-earning": "#afafaf",
+    "--color-placeholder": "#9e9e9e",
+    "--color-dropdown": "#c9c9d6",
+    "--color-opacity-up": "#0b3528",
+    "--color-opacity-down": "#3f1912",
   },
 };
+
+export default Colors;
