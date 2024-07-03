@@ -1,3 +1,3 @@
 # View Stats Project
 
-Hi team, thank you for this opportunity.
+A Robinhood App Clone created with React Native using Expo.
