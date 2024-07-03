@@ -30,6 +30,7 @@ module.exports = {
         "opacity-up": "var(--color-opacity-up)",
         "opacity-down": "var(--color-opacity-down)",
         "nav-icon-active": "var(--color-nav-icon-active)",
+        "nav-icon-inactive": "var(--color-nav-icon-inactive)",
       },
     },
   },

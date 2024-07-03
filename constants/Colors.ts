@@ -25,6 +25,7 @@ const Colors = {
     "--color-opacity-up": "#c8f7e6",
     "--color-opacity-down": "#f4d1cb",
     "--color-nav-icon-active": "#212529",
+    "--color-nav-icon-inactive": "#6c757d",
   },
 
   dark: {
@@ -53,6 +54,7 @@ const Colors = {
     "--color-opacity-up": "#0b3528",
     "--color-opacity-down": "#3f1912",
     "--color-nav-icon-active": "#212529",
+    "--color-nav-icon-inactive": "#6c757d",
   },
 };
 
