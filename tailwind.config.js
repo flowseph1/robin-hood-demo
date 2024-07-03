@@ -29,6 +29,7 @@ module.exports = {
         dropdown: "var(--color-dropdown)",
         "opacity-up": "var(--color-opacity-up)",
         "opacity-down": "var(--color-opacity-down)",
+        "nav-icon-active": "var(--color-nav-icon-active)",
       },
     },
   },
