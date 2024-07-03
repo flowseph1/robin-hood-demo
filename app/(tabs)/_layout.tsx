@@ -3,6 +3,9 @@ import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/tab-bar-icon";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { screenWidth } from "@/lib/dimensions";
+
+const TAB_BAR_HEIGHT = 65;
 
 export default function TabLayout() {
   const { colors } = useColorScheme();
@@ -11,7 +14,18 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: colors["--color-nav-icon-active"],
+        tabBarInactiveTintColor: colors["--color-nav-icon-inactive"],
         headerShown: false,
+        tabBarStyle: {
+          height: TAB_BAR_HEIGHT,
+          borderTopWidth: 0,
+          paddingHorizontal: screenWidth / 20,
+          elevation: 0,
+          shadowOffset: {
+            width: 0,
+            height: 0,
+          },
+        },
         tabBarLabel: () => null,
       }}
     >
@@ -19,7 +33,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Chart",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <TabBarIcon name={"bar-chart"} color={color} />
           ),
         }}
@@ -29,7 +43,7 @@ export default function TabLayout() {
         name="wallet"
         options={{
           title: "Wallet",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <TabBarIcon name={"wallet"} color={color} />
           ),
         }}
@@ -39,7 +53,7 @@ export default function TabLayout() {
         name="search"
         options={{
           title: "Search",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <TabBarIcon name={"search"} color={color} />
           ),
         }}
@@ -49,7 +63,7 @@ export default function TabLayout() {
         name="chat"
         options={{
           title: "Chat",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <TabBarIcon name={"chatbox-ellipses"} color={color} />
           ),
         }}
@@ -59,7 +73,7 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: "Profile",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <TabBarIcon name={"person-sharp"} color={color} />
           ),
         }}
