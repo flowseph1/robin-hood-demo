@@ -1,12 +1,14 @@
 import { SymbolList } from "@/components/browse/symbol-list";
+import { LoadingIndicator } from "@/components/loading-indicator";
 import { NoRecentSearch } from "@/components/no-recent-search";
 import { SYMBOLS_DATA } from "@/data/symbols";
 import { searchSymbol } from "@/lib/api-request";
+import { memo } from "react";
 import { Alert, View } from "react-native";
 import { useQuery } from "react-query";
 
-export function BrowseSearchResult({ term }: { term: string }) {
-  const { data } = useQuery({
+export function BrowseSearchResult_({ term }: { term: string }) {
+  const { data, isLoading } = useQuery({
     queryFn: () => searchSymbol(term),
     queryKey: ["search", term],
     onError: (error) => {
@@ -21,19 +23,15 @@ export function BrowseSearchResult({ term }: { term: string }) {
     enabled: term.length > 0,
   });
 
-  console.log(
-    "components/browse-search.tsx | #22 -> data",
-    JSON.stringify(data, null, 4),
-  );
-
   return (
     <View className="px-6 flex-1">
-      {!data && <NoRecentSearch />}
-
-      {/* In case API request daily rate reached use component with static data */}
-      {/* {data && <SymbolsList data={SYMBOLS_DATA.bestMatches} />} */}
+      {!data && !isLoading && <NoRecentSearch />}
 
       {data && <SymbolList data={SYMBOLS_DATA.bestMatches} />}
+
+      {isLoading && <LoadingIndicator />}
     </View>
   );
 }
+
+export const BrowseSearchResult = memo(BrowseSearchResult_);
