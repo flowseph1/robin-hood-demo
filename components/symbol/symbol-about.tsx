@@ -14,7 +14,9 @@ export function SymbolAbout({
         About {companyOverviewData.Name}
       </ThemedText>
       <View className="flex-col gap-2">
-        <ThemedText>{companyOverviewData.Description}</ThemedText>
+        <ThemedText intent={"subtle2"}>
+          {companyOverviewData.Description}
+        </ThemedText>
         <Stat label="Country" value={companyOverviewData.Country} />
         <Stat label="Sector" value={companyOverviewData.Sector} />
         <Stat label="Industry" value={companyOverviewData.Industry} />
