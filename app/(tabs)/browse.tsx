@@ -1,11 +1,11 @@
 import { AnimatedView } from "@/components/animated-view";
 import { BrowseNews } from "@/components/browse-news";
-import { BrowseSearch } from "@/components/browse-search";
-import { Container } from "@/components/container";
+import { BrowseSearchResult } from "@/components/browse-search-result";
 import { Header } from "@/components/navigation/header";
 import { SearchInput } from "@/components/search-input";
 import { TrendingList } from "@/components/trending-list";
 import { ThemedText } from "@/components/typography/themed-text";
+import { useDebounce } from "@uidotdev/usehooks";
 import { Stack } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
@@ -19,6 +19,8 @@ const SCREEN_TITLE = "Browse";
 export default function BrowseScreen() {
   const [term, setTerm] = useState("");
   const [inputIsFocus, setInputIsFocus] = useState(false);
+  /* term debounced to avoid unnecessary requests */
+  const debouncedSearchTerm = useDebounce(term, 300);
 
   const scrollY = useSharedValue(0);
 
@@ -30,7 +32,14 @@ export default function BrowseScreen() {
   });
 
   return (
-    <Animated.ScrollView bounces={false} onScroll={handleScroll}>
+    <Animated.ScrollView
+      bounces={false}
+      onScroll={handleScroll}
+      contentContainerStyle={{
+        flexGrow: 1,
+      }}
+      className={"flex-1"}
+    >
       <Stack.Screen
         options={{
           headerShown: true,
@@ -38,7 +47,7 @@ export default function BrowseScreen() {
         }}
       />
 
-      <Container className="bg-foreground gap-9">
+      <View className="flex-1 bg-foreground">
         <View className="px-6 gap-5">
           <ThemedText intent={"title"}>Browse</ThemedText>
           <SearchInput
@@ -48,24 +57,24 @@ export default function BrowseScreen() {
           />
         </View>
 
-        {!inputIsFocus && (
-          <AnimatedView>
-            <TrendingList />
-          </AnimatedView>
+        {!inputIsFocus && term.length === 0 && (
+          <View className="flex-col gap-10 mt-10">
+            <AnimatedView>
+              <TrendingList />
+            </AnimatedView>
+
+            <AnimatedView delay={300}>
+              <BrowseNews />
+            </AnimatedView>
+          </View>
         )}
 
-        {!inputIsFocus && (
-          <AnimatedView delay={300}>
-            <BrowseNews />
+        {(inputIsFocus || term.length > 0) && (
+          <AnimatedView classNames="flex-1">
+            <BrowseSearchResult term={debouncedSearchTerm} />
           </AnimatedView>
         )}
-
-        {inputIsFocus && (
-          <AnimatedView>
-            <BrowseSearch />
-          </AnimatedView>
-        )}
-      </Container>
+      </View>
     </Animated.ScrollView>
   );
 }
