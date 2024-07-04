@@ -1,4 +1,5 @@
 import { ThemedText } from "@/components/typography/themed-text";
+import { useSearchHistoryStore } from "@/stores/use-search-history-store";
 import { Symbol } from "@/types/symbol";
 import { Link } from "expo-router";
 import { memo } from "react";
@@ -21,16 +22,22 @@ export function SymbolList({ data }: { data: Symbol[] }) {
 }
 
 export function SymbolItem_({ symbol, i }: { symbol: Symbol; i: number }) {
+  const addHistory = useSearchHistoryStore((state) => state.addToHistory);
+
   return (
     <Animated.View
       entering={FadeIn.delay(i * 100)}
       layout={LinearTransition}
       key={symbol["1. symbol"]}
-      className="border-b-[1px] border-border p-5 rounded-lg"
+      className="border-b-[1px] border-border py-5  rounded-lg"
     >
-      <Link href={`/browse/${symbol["1. symbol"]}`} asChild>
+      <Link
+        href={`/browse/${symbol["1. symbol"]}`}
+        asChild
+        onPress={() => addHistory(symbol["1. symbol"])}
+      >
         <TouchableOpacity>
-          <View className="flex-row">
+          <View className="flex-row px-3">
             <View className="flex-1">
               <ThemedText classNames="font-bold text-lg">
                 {symbol["1. symbol"]}

@@ -5,10 +5,12 @@ import { Header } from "@/components/navigation/header";
 import { SearchInput } from "@/components/search-input";
 import { TrendingList } from "@/components/trending-list";
 import { ThemedText } from "@/components/typography/themed-text";
+import { useTheme } from "@/hooks/use-theme";
+import { Entypo } from "@expo/vector-icons";
 import { useDebounce } from "@uidotdev/usehooks";
 import { Stack } from "expo-router";
 import { useState } from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
@@ -17,8 +19,9 @@ import Animated, {
 const SCREEN_TITLE = "Browse";
 
 export default function BrowseScreen() {
+  const { colors } = useTheme();
   const [term, setTerm] = useState("");
-  const [inputIsFocus, setInputIsFocus] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   /* term debounced to avoid unnecessary requests */
   const debouncedSearchTerm = useDebounce(term, 300);
 
@@ -43,7 +46,28 @@ export default function BrowseScreen() {
       <Stack.Screen
         options={{
           headerShown: true,
-          header: () => <Header title={SCREEN_TITLE} scrollY={scrollY} />,
+          header: () => (
+            <Header
+              title={SCREEN_TITLE}
+              scrollY={scrollY}
+              left={
+                showSearch ? (
+                  <TouchableOpacity
+                    onPress={() => {
+                      setShowSearch(false);
+                      setTerm("");
+                    }}
+                  >
+                    <Entypo
+                      name="chevron-thin-left"
+                      size={24}
+                      color={colors["--color-day-bar-bg"]}
+                    />
+                  </TouchableOpacity>
+                ) : null
+              }
+            />
+          ),
         }}
       />
 
@@ -53,11 +77,11 @@ export default function BrowseScreen() {
           <SearchInput
             term={term}
             setTerm={setTerm}
-            handleFocus={setInputIsFocus}
+            handleFocus={setShowSearch}
           />
         </View>
 
-        {!inputIsFocus && term.length === 0 && (
+        {!showSearch && (
           <View className="flex-col gap-10 mt-10">
             <AnimatedView>
               <TrendingList />
@@ -69,7 +93,7 @@ export default function BrowseScreen() {
           </View>
         )}
 
-        {(inputIsFocus || term.length > 0) && (
+        {showSearch && (
           <AnimatedView classNames="flex-1">
             <BrowseSearchResult term={debouncedSearchTerm} />
           </AnimatedView>
