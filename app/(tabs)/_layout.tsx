@@ -2,22 +2,29 @@ import { Tabs } from "expo-router";
 import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/tab-bar-icon";
-import { useColorScheme } from "@/hooks/use-color-scheme";
 import { screenWidth } from "@/lib/dimensions";
+import { useTheme } from "@/hooks/use-theme";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const TAB_BAR_HEIGHT = 65;
 
 export default function TabLayout() {
-  const { colors } = useColorScheme();
+  const { colors } = useTheme();
+
+  const insets = useSafeAreaInsets();
 
   return (
     <Tabs
+      sceneContainerStyle={{
+        backgroundColor: colors["--color-background"],
+      }}
       screenOptions={{
         tabBarActiveTintColor: colors["--color-nav-icon-active"],
         tabBarInactiveTintColor: colors["--color-nav-icon-inactive"],
         headerShown: false,
         tabBarStyle: {
-          height: TAB_BAR_HEIGHT,
+          backgroundColor: colors["--color-bar-light"],
+          height: TAB_BAR_HEIGHT + insets.bottom,
           borderTopWidth: 0,
           paddingHorizontal: screenWidth / 20,
           elevation: 0,
