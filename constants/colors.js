@@ -5,6 +5,7 @@ const Colors = {
     "--color-primary": "#00c806",
     "--color-primary-light": "#E5F8E3",
     "--color-danger": "#FF5000",
+    "--color-gray-icon": "#97a4b2",
     "--color-font-default": "#000000",
     "--color-font-subtle": "#a3a3a3",
     "--color-modal-bg": "#FFFFFF",
@@ -39,6 +40,7 @@ const Colors = {
     "--color-primary": "#00c806",
     "--color-primary-light": "#E5F8E3",
     "--color-danger": "#FF5000",
+    "--color-gray-icon": "#97a4b2",
     "--color-font-default": "#FFFFFF",
     "--color-font-subtle": "rgba(255,255,255,0.4)",
     "--color-modal-bg": "#0f151c",
@@ -63,8 +65,8 @@ const Colors = {
     "--color-dropdown": "#c9c9d6",
     "--color-opacity-up": "#0b3528",
     "--color-opacity-down": "#3f1912",
-    "--color-nav-icon-active": "#212529",
-    "--color-nav-icon-inactive": "#6c757d",
+    "--color-nav-icon-active": "#28a745",
+    "--color-nav-icon-inactive": "#adb5bd",
   },
 };
 

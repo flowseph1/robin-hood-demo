@@ -12,7 +12,7 @@ module.exports = {
         "primary-light": "var(--color-primary-light)",
         "font-subtle": "var(--color-font-subtle)",
         danger: "var(--color-danger)",
-
+        "gray-icon": "var(--color-gray-icon)",
         "modal-bg": "var(--color-modal-bg)",
         "day-bar-bg": "var(--color-day-bar-bg)",
         "search-bar": "var(--color-search-bar)",
