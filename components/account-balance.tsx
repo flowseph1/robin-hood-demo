@@ -10,8 +10,12 @@ import { Chart } from "@/components/chart/chart";
 const SCREEN_TITLE = "Investing";
 const BALANCE = "$32,465.54";
 const REWARDS_BUTTON_TEXT = "Rewards";
+const BUYING_POWER_LABEL = "Buying Power";
+const BUYING_POWER_VALUE = "$728.24";
 
 export function AccountBalance() {
+  const { colors } = useTheme();
+
   return (
     <Card>
       {/* heading section */}
@@ -30,8 +34,26 @@ export function AccountBalance() {
         <UpDownIndicator type="down" value="$24.1800" label="After-Hours" />
       </View>
 
-      {/* Chart with filters */}
-      <Chart />
+      <View>
+        {/* Chart with filters */}
+        <Chart />
+
+        {/* Bottom section */}
+        <TouchableOpacity>
+          <View className="flex-row justify-between mx-6 py-5 border-t-[1px] border-t-border">
+            <ThemedText>{BUYING_POWER_LABEL}</ThemedText>
+
+            <View className="flex-row gap-2">
+              <ThemedText>{BUYING_POWER_VALUE}</ThemedText>
+              <Feather
+                name="chevron-right"
+                size={20}
+                color={colors["--color-gray-icon"]}
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+      </View>
     </Card>
   );
 }
