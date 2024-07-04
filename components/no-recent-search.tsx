@@ -10,11 +10,7 @@ export function NoRecentSearch() {
   return (
     <AnimatedView classNames="flex-col justify-center items-center py-10">
       <AntDesign name="inbox" size={26} color={colors["--color-gray-icon"]} />
-      {
-        <ThemedText classNames="text-font-subtle text-xl">
-          No searches yet
-        </ThemedText>
-      }
+      <ThemedText classNames="text-xl">No searches yet</ThemedText>
       <ThemedText classNames="text-font-subtle">
         Search for a symbol to get started
       </ThemedText>
