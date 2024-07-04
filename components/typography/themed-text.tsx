@@ -10,6 +10,7 @@ const textVariants = cva("text-font-default", {
       body: "text-base",
       primary: "text-primary",
       subtle: "text-base text-font-subtle",
+      "card-title": "text-3xl font-semibold",
     },
   },
   defaultVariants: {
