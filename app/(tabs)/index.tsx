@@ -1,11 +1,10 @@
 import { AccountBalance } from "@/components/account-balance";
+import { AnimatedView } from "@/components/animated-view";
 import { Container } from "@/components/container";
 import { HomeList } from "@/components/home-lits";
 import { HomeNews } from "@/components/home-news";
 import { Header } from "@/components/navigation/header";
-import { ThemedText } from "@/components/typography/themed-text";
 import { Stack } from "expo-router";
-import { ScrollView, View } from "react-native";
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
@@ -35,9 +34,15 @@ export default function HomeScreen() {
         }}
       />
       <Container>
-        <AccountBalance />
-        <HomeNews />
-        <HomeList />
+        <AnimatedView>
+          <AccountBalance />
+        </AnimatedView>
+        <AnimatedView delay={300}>
+          <HomeNews />
+        </AnimatedView>
+        <AnimatedView delay={500}>
+          <HomeList />
+        </AnimatedView>
       </Container>
     </Animated.ScrollView>
   );
