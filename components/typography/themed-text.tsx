@@ -7,7 +7,9 @@ const textVariants = cva("text-font-default", {
   variants: {
     intent: {
       title: "text-4xl font-[500]",
+      subtitle: "text-xl font-[500]",
       body: "text-base",
+      "new-title": "text-2xl",
       primary: "text-primary",
       subtle: "text-base text-font-subtle",
       "card-title": "text-3xl font-semibold",
