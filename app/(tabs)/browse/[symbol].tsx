@@ -1,7 +1,9 @@
 import { AnimatedView } from "@/components/animated-view";
 import { LoadingIndicator } from "@/components/loading-indicator";
 import { Header } from "@/components/navigation/header";
+import { SymbolAbout } from "@/components/symbol/symbol-about";
 import { SymbolChart } from "@/components/symbol/symbol-chart";
+import { SymbolStats } from "@/components/symbol/symbol-stats";
 import { useTheme } from "@/hooks/use-theme";
 import { getCompanyOverview, getGlobalQuote } from "@/lib/api-request";
 import { Entypo, Feather, Ionicons } from "@expo/vector-icons";
@@ -58,24 +60,23 @@ export default function SymbolDetailScreen() {
     },
   });
 
-  console.log(
-    "app/(tabs)/browse/[symbol].tsx | #33 -> data",
-    JSON.stringify(companyGlobalQuoteData, null, 4),
-  );
-
   return (
     <Animated.ScrollView
       className="flex-1 bg-foreground"
       bounces={false}
       onScroll={handleScroll}
+      contentContainerStyle={{
+        flexGrow: 1,
+        gap: 24,
+      }}
     >
       <Stack.Screen
         options={{
           headerShown: true,
           header: () => (
             <Header
-              title={companyGlobalQuoteData?.["Global Quote"]["01. symbol"]}
-              subtitle={companyGlobalQuoteData?.["Global Quote"]["05. price"]}
+              title={companyGlobalQuoteData?.["Global Quote"]["05. price"]}
+              subtitle={companyGlobalQuoteData?.["Global Quote"]["01. symbol"]}
               scrollY={scrollY}
               left={
                 <TouchableOpacity onPress={() => router.back()}>
@@ -120,6 +121,21 @@ export default function SymbolDetailScreen() {
       )}
 
       {isLoadingCompanyQuotes && <LoadingIndicator />}
+
+      {companyGlobalQuoteData && companyOverviewData && (
+        <AnimatedView delay={300}>
+          <SymbolStats
+            companyGlobalQuoteData={companyGlobalQuoteData["Global Quote"]}
+            companyOverviewData={companyOverviewData}
+          />
+        </AnimatedView>
+      )}
+
+      {companyOverviewData && (
+        <AnimatedView delay={400}>
+          <SymbolAbout companyOverviewData={companyOverviewData} />
+        </AnimatedView>
+      )}
     </Animated.ScrollView>
   );
 }
