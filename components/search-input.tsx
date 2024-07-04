@@ -26,7 +26,6 @@ export function SearchInput({
       <TextInput
         value={term}
         onFocus={() => handleFocus(true)}
-        onBlur={() => handleFocus(false)}
         onChangeText={setTerm}
         placeholder={PLACEHOLDER}
         className="w-full"
