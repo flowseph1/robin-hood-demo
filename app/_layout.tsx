@@ -6,9 +6,12 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { View } from "react-native";
 import "react-native-reanimated";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const { theme } = useTheme();
@@ -18,11 +21,13 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <View style={themes[theme ?? "light"]} className="flex-1">
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View style={themes[theme ?? "light"]} className="flex-1">
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </View>
+    </QueryClientProvider>
   );
 }
