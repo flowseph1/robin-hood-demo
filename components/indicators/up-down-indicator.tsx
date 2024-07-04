@@ -1,9 +1,8 @@
 import { View } from "react-native";
 
-import { Entypo } from "@expo/vector-icons";
-import { useTheme } from "@/hooks/use-theme";
 import { ThemedText } from "@/components/typography/themed-text";
-import { cn } from "@/lib";
+import { useTheme } from "@/hooks/use-theme";
+import { Entypo } from "@expo/vector-icons";
 
 export function UpDownIndicator({
   type,
@@ -32,17 +31,16 @@ export function UpDownIndicator({
         />
       )}
 
-      <ThemedText intent="body">
+      <View className="flex-row gap-1 items-center">
         <ThemedText
-          classNames={cn("font-semibold", {
-            "text-primary": type === "up",
-            "text-error": type === "down",
-          })}
+          intent={type === "up" ? "primary" : "danger"}
+          classNames="font-semibold"
         >
-          {value}{" "}
+          {value}
         </ThemedText>
-        {label}
-      </ThemedText>
+
+        <ThemedText intent="body">{label}</ThemedText>
+      </View>
     </View>
   );
 }
