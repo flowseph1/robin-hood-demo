@@ -1,3 +1,4 @@
+import { AnimatedView } from "@/components/animated-view";
 import { ThemedText } from "@/components/typography/themed-text";
 import { useTheme } from "@/hooks/use-theme";
 import { AntDesign } from "@expo/vector-icons";
@@ -7,7 +8,7 @@ export function NoRecentSearch() {
   const { colors } = useTheme();
 
   return (
-    <View className="flex-col justify-center items-center py-10">
+    <AnimatedView classNames="flex-col justify-center items-center py-10">
       <AntDesign name="inbox" size={26} color={colors["--color-gray-icon"]} />
       {
         <ThemedText classNames="text-font-subtle text-xl">
@@ -17,6 +18,6 @@ export function NoRecentSearch() {
       <ThemedText classNames="text-font-subtle">
         Search for a symbol to get started
       </ThemedText>
-    </View>
+    </AnimatedView>
   );
 }
