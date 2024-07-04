@@ -4,7 +4,7 @@ import { Symbol } from "@/types/symbol";
 import { ScrollView, TouchableOpacity, View } from "react-native";
 import Animated, { LinearTransition } from "react-native-reanimated";
 
-export function SymbolsList({ data }: { data: Symbol[] }) {
+export function SymbolList({ data }: { data: Symbol[] }) {
   return (
     <View className="">
       {data.map((symbol) => (

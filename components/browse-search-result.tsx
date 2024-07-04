@@ -1,4 +1,4 @@
-import { SymbolsList } from "@/components/browse/symbols-list";
+import { SymbolList } from "@/components/browse/symbol-list";
 import { NoRecentSearch } from "@/components/no-recent-search";
 import { SYMBOLS_DATA } from "@/data/symbols";
 import { searchSymbol } from "@/lib/api-request";
@@ -29,7 +29,11 @@ export function BrowseSearchResult({ term }: { term: string }) {
   return (
     <View className="px-6 flex-1">
       {!data && <NoRecentSearch />}
-      {data && <SymbolsList data={SYMBOLS_DATA.bestMatches} />}
+
+      {/* In case API request daily rate reached use component with static data */}
+      {/* {data && <SymbolsList data={SYMBOLS_DATA.bestMatches} />} */}
+
+      {data && <SymbolList data={SYMBOLS_DATA.bestMatches} />}
     </View>
   );
 }
