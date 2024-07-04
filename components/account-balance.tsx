@@ -6,6 +6,9 @@ import { Feather } from "@expo/vector-icons";
 import { useTheme } from "@/hooks/use-theme";
 import { UpDownIndicator } from "@/components/indicators/up-down-indicator";
 import { Chart } from "@/components/chart/chart";
+import { FilterValues } from "@/components/chart/chart-filters";
+import { useState } from "react";
+import { chartData } from "@/data/static-chart";
 
 const SCREEN_TITLE = "Investing";
 const BALANCE = "$32,465.54";
@@ -15,6 +18,8 @@ const BUYING_POWER_VALUE = "$728.24";
 
 export function AccountBalance() {
   const { colors } = useTheme();
+
+  const [filter, setFilter] = useState<FilterValues>("1D");
 
   return (
     <Card>
@@ -36,7 +41,11 @@ export function AccountBalance() {
 
       <View>
         {/* Chart with filters */}
-        <Chart />
+        <Chart
+          data={chartData.map((data) => data.close)}
+          currentFilter={filter}
+          onFilterPress={setFilter}
+        />
 
         {/* Bottom section */}
         <TouchableOpacity>
