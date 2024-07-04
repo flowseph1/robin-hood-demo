@@ -131,8 +131,8 @@ export default function SymbolDetailScreen() {
         </AnimatedView>
       )}
 
-      {companyOverviewData && (
-        <AnimatedView delay={400}>
+      {companyOverviewData && companyGlobalQuoteData && (
+        <AnimatedView delay={500}>
           <SymbolAbout companyOverviewData={companyOverviewData} />
         </AnimatedView>
       )}
