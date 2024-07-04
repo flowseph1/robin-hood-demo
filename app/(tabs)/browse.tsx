@@ -1,4 +1,6 @@
+import { AnimatedView } from "@/components/animated-view";
 import { BrowseNews } from "@/components/browse-news";
+import { BrowseSearch } from "@/components/browse-search";
 import { Container } from "@/components/container";
 import { Header } from "@/components/navigation/header";
 import { SearchInput } from "@/components/search-input";
@@ -16,6 +18,7 @@ const SCREEN_TITLE = "Browse";
 
 export default function BrowseScreen() {
   const [term, setTerm] = useState("");
+  const [inputIsFocus, setInputIsFocus] = useState(false);
 
   const scrollY = useSharedValue(0);
 
@@ -38,10 +41,30 @@ export default function BrowseScreen() {
       <Container className="bg-foreground gap-9">
         <View className="px-6 gap-5">
           <ThemedText intent={"title"}>Browse</ThemedText>
-          <SearchInput term={term} setTerm={setTerm} />
+          <SearchInput
+            term={term}
+            setTerm={setTerm}
+            handleFocus={setInputIsFocus}
+          />
         </View>
-        <TrendingList />
-        <BrowseNews />
+
+        {!inputIsFocus && (
+          <AnimatedView>
+            <TrendingList />
+          </AnimatedView>
+        )}
+
+        {!inputIsFocus && (
+          <AnimatedView delay={300}>
+            <BrowseNews />
+          </AnimatedView>
+        )}
+
+        {inputIsFocus && (
+          <AnimatedView>
+            <BrowseSearch />
+          </AnimatedView>
+        )}
       </Container>
     </Animated.ScrollView>
   );
