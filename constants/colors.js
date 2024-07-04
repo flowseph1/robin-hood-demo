@@ -1,7 +1,12 @@
 const Colors = {
   light: {
+    "--color-background": "#f5f5f5",
+    "--color-foreground": "#FFFFFF",
+    "--color-primary": "#00c806",
+    "--color-primary-light": "#E5F8E3",
+    "--color-danger": "#FF5000",
     "--color-font-default": "#000000",
-    "--color-screen-bg": "#FFFFFF",
+    "--color-font-subtle": "#a3a3a3",
     "--color-modal-bg": "#FFFFFF",
     "--color-day-bar-bg": "#12E6A6",
     "--color-search-bar": "#EAE8E8",
@@ -29,8 +34,13 @@ const Colors = {
   },
 
   dark: {
+    "--color-background": "#111827",
+    "--color-foreground": "#040e16",
+    "--color-primary": "#00c806",
+    "--color-primary-light": "#E5F8E3",
+    "--color-danger": "#FF5000",
     "--color-font-default": "#FFFFFF",
-    "--color-screen-bg": "#040e16",
+    "--color-font-subtle": "rgba(255,255,255,0.4)",
     "--color-modal-bg": "#0f151c",
     "--color-search-bar": "#1C1C1E",
     "--color-day-bar-bg": "#12E6A6",

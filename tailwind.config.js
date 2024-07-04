@@ -1,12 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
       colors: {
         "font-default": "var(--color-font-default)",
-        "screen-bg": "var(--color-screen-bg)",
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
+        primary: "var(--color-primary)",
+        "primary-light": "var(--color-primary-light)",
+        "font-subtle": "var(--color-font-subtle)",
+        danger: "var(--color-danger)",
+
         "modal-bg": "var(--color-modal-bg)",
         "day-bar-bg": "var(--color-day-bar-bg)",
         "search-bar": "var(--color-search-bar)",
