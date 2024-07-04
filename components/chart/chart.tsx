@@ -1,12 +1,9 @@
 import { ChartFilters, FilterValues } from "@/components/chart/chart-filters";
-import { chartData } from "@/data/static-chart";
-import { useState } from "react";
+import { memo } from "react";
 import { View } from "react-native";
 import { LineChart } from "react-native-svg-charts";
 
-const GRAPH_DATA = chartData.map((item) => item.close);
-
-export function Chart({
+export function Chart_({
   data,
   currentFilter,
   onFilterPress,
@@ -34,3 +31,5 @@ export function Chart({
     </View>
   );
 }
+
+export const Chart = memo(Chart_);
