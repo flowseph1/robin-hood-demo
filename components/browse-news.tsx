@@ -1,9 +1,8 @@
-import { Card } from "@/components/card";
 import { ThemedText } from "@/components/typography/themed-text";
-import { Image, TouchableOpacity, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTheme } from "@/hooks/use-theme";
 import { NEWS_DATA } from "@/data/news";
+import { useTheme } from "@/hooks/use-theme";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image, TouchableOpacity, View } from "react-native";
 
 const NEW_DATA = NEWS_DATA[0];
 
