@@ -1,7 +1,7 @@
 import { AccountBalance } from "@/components/account-balance";
 import { AnimatedView } from "@/components/animated-view";
 import { Container } from "@/components/container";
-import { HomeList } from "@/components/home-lits";
+import { HomeLists } from "@/components/home-lists";
 import { HomeNews } from "@/components/home-news";
 import { Header } from "@/components/navigation/header";
 import { Stack } from "expo-router";
@@ -41,7 +41,7 @@ export default function HomeScreen() {
           <HomeNews />
         </AnimatedView>
         <AnimatedView delay={500}>
-          <HomeList />
+          <HomeLists />
         </AnimatedView>
       </Container>
     </Animated.ScrollView>
