@@ -1,14 +1,14 @@
 import { ThemedText } from "@/components/typography/themed-text";
-import { SYMBOLS_DATA } from "@/data/symbols";
 import { Symbol } from "@/types/symbol";
-import { ScrollView, TouchableOpacity, View } from "react-native";
-import Animated, { LinearTransition } from "react-native-reanimated";
+import { TouchableOpacity, View } from "react-native";
+import Animated, { FadeIn, LinearTransition } from "react-native-reanimated";
 
 export function SymbolList({ data }: { data: Symbol[] }) {
   return (
     <View className="">
-      {data.map((symbol) => (
+      {data.map((symbol, i) => (
         <Animated.View
+          entering={FadeIn.delay(i * 100)}
           layout={LinearTransition}
           key={symbol["1. symbol"]}
           className="border-b-[1px] border-border p-5 rounded-lg"
