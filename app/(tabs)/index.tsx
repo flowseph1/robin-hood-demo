@@ -1,4 +1,6 @@
 import { AccountBalance } from "@/components/account-balance";
+import { Container } from "@/components/container";
+import { HomeNews } from "@/components/home-news";
 import { Header } from "@/components/navigation/header";
 import { ThemedText } from "@/components/typography/themed-text";
 import { Stack } from "expo-router";
@@ -16,7 +18,10 @@ export default function HomeScreen() {
           header: () => <Header title={BALANCE} subtitle={SCREEN_TITLE} />,
         }}
       />
-      <AccountBalance />
+      <Container>
+        <AccountBalance />
+        <HomeNews />
+      </Container>
     </ScrollView>
   );
 }
