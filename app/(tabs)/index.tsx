@@ -15,12 +15,12 @@ const SCREEN_TITLE = "Investing";
 const BALANCE = "$32,465.54";
 
 export default function HomeScreen() {
-  const value = useSharedValue(0);
+  const scrollY = useSharedValue(0);
 
   /* catch scroll positions to make header animation */
   const handleScroll = useAnimatedScrollHandler({
     onScroll: (event) => {
-      value.value = event.contentOffset.y;
+      scrollY.value = event.contentOffset.y;
     },
   });
 
@@ -30,7 +30,7 @@ export default function HomeScreen() {
         options={{
           headerShown: true,
           header: () => (
-            <Header title={BALANCE} subtitle={SCREEN_TITLE} y={value} />
+            <Header title={BALANCE} subtitle={SCREEN_TITLE} scrollY={scrollY} />
           ),
         }}
       />

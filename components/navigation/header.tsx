@@ -13,19 +13,19 @@ export function Header({
   subtitle,
   left,
   right,
-  y,
+  scrollY,
 }: {
   title?: string;
   subtitle?: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
-  y: SharedValue<number>;
+  scrollY: SharedValue<number>;
 }) {
   const insets = useSafeAreaInsets();
 
   /* based on scroll position change opacity */
   const styleAnimated = useAnimatedStyle(() => ({
-    opacity: interpolate(y.value, [80, 150], [0, 1]),
+    opacity: interpolate(scrollY.value, [80, 150], [0, 1]),
   }));
 
   return (
