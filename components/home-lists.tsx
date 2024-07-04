@@ -16,7 +16,7 @@ const LIST = [
   },
 ];
 
-export function HomeList() {
+export function HomeLists() {
   return (
     <Card>
       <View className="px-6 py-3 gap-7">
