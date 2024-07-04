@@ -34,7 +34,7 @@ export function HomeList() {
             </View>
 
             <View className="h-fit py-2 px-4 bg-primary rounded-lg items-center justify-center">
-              <ThemedText classNames="text-font-default text-md">
+              <ThemedText classNames="text-white text-md">
                 {USDollar.format(item.price)}
               </ThemedText>
             </View>
