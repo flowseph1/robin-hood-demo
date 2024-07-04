@@ -1,4 +1,4 @@
-import { ThemeText } from "@/components/typography/text";
+import { ThemedText } from "@/components/typography/themed-text";
 import { Link, Stack } from "expo-router";
 import { View } from "react-native";
 
@@ -7,9 +7,9 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: "Oops!" }} />
       <View>
-        <ThemeText>This screen doesn't exist.</ThemeText>
+        <ThemedText>This screen doesn't exist.</ThemedText>
         <Link href="/">
-          <ThemeText>Go to home screen!</ThemeText>
+          <ThemedText>Go to home screen!</ThemedText>
         </Link>
       </View>
     </>
