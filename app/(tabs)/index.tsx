@@ -1,10 +1,22 @@
-import { Text } from "@/components/typography/text";
-import { View } from "react-native";
+import { AccountBalance } from "@/components/account-balance";
+import { Header } from "@/components/navigation/header";
+import { ThemedText } from "@/components/typography/themed-text";
+import { Stack } from "expo-router";
+import { ScrollView, View } from "react-native";
+
+const SCREEN_TITLE = "Investing";
+const BALANCE = "$32,465.54";
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 bg-screen-bg items-center justify-center">
-      <Text>Hello world</Text>
-    </View>
+    <ScrollView bounces={false}>
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          header: () => <Header title={BALANCE} subtitle={SCREEN_TITLE} />,
+        }}
+      />
+      <AccountBalance />
+    </ScrollView>
   );
 }
