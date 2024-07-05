@@ -29,6 +29,7 @@ export function SearchInput({
         onChangeText={setTerm}
         placeholder={PLACEHOLDER}
         className="w-full"
+        placeholderTextColor={colors["--color-font-subtle"]}
         style={{
           height: TEXT_INPUT_HEIGHT,
           color: colors["--color-font-default"],
