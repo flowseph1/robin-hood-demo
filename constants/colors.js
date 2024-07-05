@@ -11,7 +11,7 @@ const Colors = {
     "--color-font-subtle-2": "#6e6e6e",
     "--color-modal-bg": "#FFFFFF",
     "--color-day-bar-bg": "#12E6A6",
-    "--color-search-bar": "#EAE8E8",
+    "--color-search-bar": "#F2F2F2",
     "--color-day-bar-ns-bg": "#FFFFFF",
     "--color-theme-bar": "#f4f8fc",
     "--color-set-bar": "#EAE8E8",
